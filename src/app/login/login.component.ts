@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   data="an Ideal destination for Personal Banking needs"
   inputplaceholder="Account Number"
-  // acno=''
-  // psw=''
+  acno=''
+  psw=''
   // or any
   userDetails:any={
     1000:{acno:1000,username:"anu",password:"abc123",balance:0},
@@ -22,28 +22,9 @@ export class LoginComponent {
   ngOnInIt(): void { 
 
   }
-  // login(){
-  //   var acnum=this.acno
-  //   var pasw=this.psw
-  //   var userDetails=this.userDetails
-  //   if(acnum in userDetails){
-  //     if(pasw==userDetails[acnum]["password"]){
-  //       alert("login success")
-  //     }
-  //     else{
-  //       alert("incorrect password")
-  //     }
-
-  //   }
-  //   else{
-  //     alert("user is not registered or incorrect account number")
-  //   }
-  //   // alert('login clicked')
-  // }
-  login(a:any,b:any){
-
-    var acnum=a.value
-    var pasw=b.value
+  login(){
+    var acnum=this.acno
+    var pasw=this.psw
     var userDetails=this.userDetails
     if(acnum in userDetails){
       if(pasw==userDetails[acnum]["password"]){
@@ -57,8 +38,27 @@ export class LoginComponent {
     else{
       alert("user is not registered or incorrect account number")
     }
-    alert('login clicked')
+    // alert('login clicked')
   }
+  // login(a:any,b:any){
+
+  //   var acnum=a.value
+  //   var pasw=b.value
+  //   var userDetails=this.userDetails
+  //   if(acnum in userDetails){
+  //     if(pasw==userDetails[acnum]["password"]){
+  //       alert("login success")
+  //     }
+  //     else{
+  //       alert("incorrect password")
+  //     }
+
+  //   }
+  //   else{
+  //     alert("user is not registered or incorrect account number")
+  //   }
+  //   alert('login clicked')
+  // }
 //   acnoChange(event:any){
 //     this.acno=event.target.value;
 //     // console.log(this.acno);
