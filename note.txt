@@ -1,0 +1,109 @@
+project create******************** ng new projectname or ng new proname --routing
+clear error************************ npm i -- force
+project running******************** ng serve --open
+
+
+folders and files enthann
+==========================
+.angular ---------------angular cli and angular app thammil illa configuration
+
+.vs code----------------- vs code anf angular thammil illa configuration
+
+node modules-------------all the copies of all the third party modules are stored here
+
+.browser------------browserdetails
+
+.editorconfig--------editorconfiguration
+
+.gitignore--------ignoring unwanted files during push
+
+.angularjson---------
+
+
+
+karma.config-------testing tool
+
+
+package.json------third party versions
+ readme-------------basic details
+
+tsconfig
+app.json
+json
+spec
+
+
+
+src--------------------
+app-----full data
+
+life cycle of angular component
+
+constructor---->ngOnInIt---->other methods
+
+
+databinding techniques in angular
+------------------------------------
+(data sharing in components)
+
+datas vendath html ts nn mathram aan 
+
+html ne -----view
+ts ne-------- component 
+
+techniques
+-------------------
+
+
+1=>one way binding
+------------------------------------
+
+	1.1 component to view data sharing
+
+		1.1.1 string interpollation {{}}
+			(ts illa data html lot konduveran vendeet)
+		1.1.2 property binding [property]="proprty nsme"
+		
+	1.2 view to component data sharing
+		
+		1.2.1 event binding (event)="method()"
+
+		1.2.2 event binding using $event (event)=method($event)
+
+
+redirection in angular
+-----------------------------------
+
+router -------a class used to redirect 
+
+oro classum module aayitt aavum
+
+folder---------package
+module ne import cheyyannm 
+
+module-------approutingmodule
+methods-------navigate by url
+
+
+
+
+dependency injectin 
+---- -----------------------------
+to share datas from one  class to another
+
+
+
+
+create inside constructor
+-------------------acess_specifier    reference:className
+-------------------private/public
+
+
+				reference.method()
+
+
+angular services
+------------------------------
+to store redemtant datas and methods 
+all the components can access the datas and methods  defined in servoce file easily---
+command ------------------         ng g s service_name
