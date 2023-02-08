@@ -109,3 +109,9 @@ all the components can access the datas and methods  defined in servoce file eas
 command ------------------         ng g s service_name
 
 
+angular derectives-to manipulate dom
+
+-------------------------------------------------------------
+
+1------command directives
+2------structural directives*ngfor
