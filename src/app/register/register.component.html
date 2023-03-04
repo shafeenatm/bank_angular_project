@@ -1,17 +1,39 @@
 
-<div class="container w-50 rounded-2 text-center p-5 mt-5" style="background-color:lightskyblue;">
-    <h1 style="color:rgb(14, 14, 131);">Sign Up To bank</h1>
-    <form action="" >
-        <div class="p-3 mt-2">
-            <input [(ngModel)]="uname" name="usern1" id="unmid" class="form-control" type="text" placeholder="Enter Username">
+<div class="container w-50 rounded-2 p-5 mt-5" style="background-color:lightskyblue;">
+    
+    <h1 class="text-center" style="color:rgb(14, 14, 131);">Sign Up To bank</h1>
+   
+    <form [formGroup]="registerForm" action="" >
+
+        <div class="p-3 mt-2 text-center">
+            <input formControlName="uname" name="usern1" id="unmid" class="form-control" type="text" placeholder="Enter Username">
         </div>
-        <div class="p-3 mt-2">
-            <input [(ngModel)]="acno" name="ac1" id="acid" class="form-control" type="text" placeholder="Enter Account Number">
+
+        <div *ngif="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+            <p class="text-danger"accept only characters></p>
         </div>
-        <div class="p-3 mt-2">
-            <input [(ngModel)]="psw"name="ps1" id="psid" class="form-control" type="password" placeholder="Enter Password">
+
+        <div class="p-3 mt-2 text-center">
+            <input formControlName="acno" name="ac1" id="acid" class="form-control" type="text" placeholder="Enter Account Number">
         </div>
-        <div class="p-3 mt-2">
+
+        <div *ngif="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+            <p class="text-danger"accept only numbers></p>
+        </div>
+
+
+
+        <div class="p-3 mt-2 text-center">
+            <input formControlName="psw" name="ps1" id="psid" class="form-control" type="password" placeholder="Enter Password">
+        </div>
+
+        <div *ngif="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+            <p class="text-danger"accept only characters and numbers></p>
+        </div>
+
+
+
+        <div class="p-3 mt-2 text-center">
             <button type="button" (click)="register()" class="btn btn-outline-light rounded-2">Register</button>
         </div>
 

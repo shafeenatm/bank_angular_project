@@ -115,3 +115,33 @@ angular derectives-to manipulate dom
 
 1------command directives
 2------structural directives*ngfor
+
+
+
+validation in angular
+-------------------------------------------------------
+form creation
+
+1.template driven form
+2.model driven form---easy to validate
+
+			2.1reactive form-used to create model of form
+				group indavum ,array indavum control indavum	
+					
+					
+					---ReactiveFormModule  -   module
+					-Formbuilder  -     class used to create model form
+					-group()   -     method to create model
+
+
+local storage in angular
+---------------------------------------------------------------
+localstorage.getitem()
+localstorage.setitem()
+localstorage.removeitem()
+
+
+json-stringyfy parse
+
+
+

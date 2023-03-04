@@ -1,12 +1,12 @@
 <!-- <h4 class="ms-2 p-2 mt-5 text-center">{{data}}</h4> -->
 <div class="container w-25 rounded-2 text-center p-5 mt-5" style="background-color:lightskyblue;">
     <h3>Sign In To Your Account</h3>
-    <form action="">
+    <form action="" [formGroup]="loginForm">
         <div class="p-3 mt-2">
-            <input [(ngModel)]="acno" name="ac1" id="acid" class="form-control" type="text" [placeholder]="inputplaceholder">  
+            <input formControlName="acno" name="ac1" id="acid" class="form-control" type="text" [placeholder]="inputplaceholder">  
         </div>
         <div class="p-3 mt-2">
-            <input [(ngModel)]="psw" name="ps1" id="psid" class="form-control" type="password" placeholder="Enter Password">  
+            <input  formControlName="psw"name="ps1" id="psid" class="form-control" type="password" placeholder="Enter Password">  
         </div>
         <div class="p-3 mt-2">
             <button type="button" (click)="login()" class="btn btn-outline-light rounded-2">Login</button>

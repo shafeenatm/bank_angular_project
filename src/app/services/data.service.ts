@@ -8,24 +8,55 @@ export class DataService {
 
   currentuser:any
   currentacno:any
+  userDetails:any 
 
-  constructor() { }
 
-  userDetails: any = {
-    1000: { acno: 1000, username: "anu", password: "abc123", balance: 0 ,transaction:[]},
-    1001: { acno: 1001, username: "ammu", password: "abc123", balance: 0 ,transaction:[]},
-    1002: { acno: 1001, username: "ansa", password: "abc123", balance: 0,transaction:[] },
-    1003: { acno: 1001, username: "musa", password: "abc123", balance: 0,transaction:[] },
-    1004: { acno: 1001, username: "lathu", password: "abc123", balance: 0,transaction:[] }
+  constructor() {
+    this.getData()
+   }
+
+  // userDetails: any = {
+  //   1000: { acno: 1000, username: "anu", password: "abc123", balance: 0 ,transaction:[]},
+  //   1001: { acno: 1001, username: "ammu", password: "abc123", balance: 0 ,transaction:[]},
+  //   1002: { acno: 1001, username: "ansa", password: "abc123", balance: 0,transaction:[] },
+  //   1003: { acno: 1001, username: "musa", password: "abc123", balance: 0,transaction:[] },
+  //   1004: { acno: 1001, username: "lathu", password: "abc123", balance: 0,transaction:[]}
+  // }
+
+  saveData(){
+    if(this.userDetails){
+      localStorage.setItem("database",JSON.stringify(this.userDetails))
+    }
+    if(this.currentuser){
+      localStorage.setItem("currentuser",this.currentuser)
+    }
+    if(this.currentacno){
+      localStorage.setItem("currentacno",JSON.stringify(this.currentacno))
+    }
   }
+
+  getData(){
+    if(localStorage.getItem('database')){
+      this.userDetails=JSON.parse(localStorage.getItem('database') || "")
+    }
+    if(localStorage.getItem('currentuser')){
+      this.currentuser=localStorage.getItem('currentuser')
+    }
+    if(localStorage.getItem('currentacno')){
+      this.currentacno=JSON.parse(localStorage.getItem('currentacno') || "")
+    }
+  }
+
+
+
   register(uname: any, acno: any, psw: any) {
     if (acno in this.userDetails) {
       return false
     }
     else {
-      this.userDetails[acno] = { acno, username: uname, password: psw, balance: 0 }
+      this.userDetails[acno] = { acno, username: uname, password: psw, balance: 0,transaction:[] }
       console.log(this.userDetails);
-
+      this.saveData()
       return true
 
     }
@@ -38,6 +69,7 @@ export class DataService {
         this.currentuser=userDetails[acno]["username"]
 
         this.currentacno=acno
+        this.saveData()
         return true
       }
       else{
@@ -64,7 +96,7 @@ export class DataService {
       // transaction store
 
       userDetails[acnum]["transaction"].push({Type:"CREDIT",amount:amnt})
-
+      this.saveData()
       // return current balance
       return userDetails[acnum]["balance"]
     }
@@ -77,6 +109,9 @@ export class DataService {
   }
  
   }
+
+
+
   withdraw(acnum:any,password:any,amount:any){
 
     let userDetails=this.userDetails
@@ -93,7 +128,8 @@ export class DataService {
           // transaction store
 
       userDetails[acnum]["transaction"].push({Type:"DEBIT",amount:amnt})
-  
+
+      this.saveData()
           // return current balance
           return userDetails[acnum]["balance"] 
         }
